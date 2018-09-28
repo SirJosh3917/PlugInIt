@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PlugInIt\PlugInIt.csproj" />
     <ProjectReference Include="..\TestProject.Core\TestProject.Core.csproj" />
   </ItemGroup>
 

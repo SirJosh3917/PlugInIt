@@ -1,8 +1,8 @@
-﻿using PlugInIt;
-using System;
+﻿using System;
 
 namespace TestProject.Core {
-	public interface ITestProjectPlugin : IManagedPlugin {
+
+	public interface IPlugin {
 		string Author { get; }
 		string Version { get; }
 		Guid Id { get; }

@@ -9,8 +9,10 @@ namespace TestProject
     {
         static void Main(string[] args)
         {
-			using(var pm = new PluginManager<ITestProjectPlugin>(PluginLoader.LoadPluginsFromDirectory<ITestProjectPlugin>("plugins"))) {
-				pm.StartAll();
+			foreach(var i in PluginLoader.LoadPluginsFromDirectory<IPlugin>("plugins")) {
+				i.Start();
+
+				i.Stop();
 			}
 
 			Console.ReadLine();

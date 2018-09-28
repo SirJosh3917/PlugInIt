@@ -3,7 +3,7 @@ using TestProject.Core;
 
 namespace TestPlugin {
 
-	public class MyMoreImportantPlugin : ITestProjectPlugin {
+	public class MyMoreImportantPlugin : IPlugin {
 		public string Author => "The Author";
 		public string Version => "v0.0.1";
 
@@ -15,7 +15,7 @@ namespace TestPlugin {
 		public void Stop() => Console.WriteLine("Important Plugin Stopped!");
 	}
 
-	public class MyPlugin : ITestProjectPlugin {
+	public class MyPlugin : IPlugin {
 		public string Author => "The Author";
 		public string Version => "v0.0.1";
 

@@ -8,14 +8,16 @@ using System.Text;
 namespace PlugInIt {
 	public static class PluginLoader {
 		public static IEnumerable<T> LoadPluginsFromDirectories<T>(params string[] dirs)
-			where T : IPlugin {
+			where T : class
+		{
 			foreach (var i in dirs)
 				foreach (var j in LoadPluginsFromDirectory<T>(Path.GetFullPath(i)))
 					yield return j;
 		}
 
 		public static IEnumerable<T> LoadPluginsFromDirectory<T>(string dir)
-			where T : IPlugin {
+			where T : class
+		{
 			if (!EnsureExists(dir)) yield break;
 
 			var paths = GetFiles(dir);
@@ -26,14 +28,14 @@ namespace PlugInIt {
 		}
 
 		public static IEnumerable<T> LoadPluginsByFileName<T>(params string[] dlls)
-			where T : IPlugin {
+			where T : class {
 			foreach (var i in dlls)
 				foreach (var j in LoadPluginByFileName<T>(Path.GetFullPath(i)))
 					yield return j;
 		}
 
 		public static IEnumerable<T> LoadPluginByFileName<T>(string dllPath)
-			where T : IPlugin {
+			where T : class {
 			var dll = LoadAssembly(dllPath);
 
 			if (dll == null) yield break;
